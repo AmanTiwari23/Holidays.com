@@ -12,7 +12,7 @@ import PriceFilter from "../components/PriceFilter";
 const Search = () => {
   const search = useSearchContext();
   const [page, setPage] = useState<number>(1);
-  const [selectedStars, setSelectedStars] = useState<string[]>([]);
+  const [selectedStars, ] = useState<string[]>([]);
   const [selectedHotelTypes, setSelectedHotelTypes] = useState<string[]>([]);
   const [selectedFacilities, setSelectedFacilities] = useState<string[]>([]);
   const [selectedPrice, setSelectedPrice] = useState<number | undefined>();
@@ -36,15 +36,6 @@ const Search = () => {
     apiClient.searchHotels(searchParams)
   );
 
-  const handleStarsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const starRating = event.target.value;
-
-    setSelectedStars((prevStars) =>
-      event.target.checked
-        ? [...prevStars, starRating]
-        : prevStars.filter((star) => star !== starRating)
-    );
-  };
 
   const handleHotelTypeChange = (
     event: React.ChangeEvent<HTMLInputElement>
